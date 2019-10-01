@@ -28,6 +28,7 @@ import { AuthComponent } from './components/auth/auth.component'
 import { AuthGuardService } from './guards/auth-guard.service'
 import { RegisterComponent } from './components/register/register.component'
 import { LogoutComponent } from './components/logout/logout.component'
+import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component';
 
 const routes: Routes = [
   {path: '', canActivate: [AuthGuardService], children: [
@@ -53,7 +54,8 @@ const routes: Routes = [
     { path: "planRada", component: PlanRadaComponent },
     { path: "zub", component: ZubComponent },
     { path: "", component: KalendarComponent },
-    { path: "izvrsenaIntervencija", component: IzvrsenaIntervencijaComponent}
+    { path: "izvrsenaIntervencija", component: IzvrsenaIntervencijaComponent}, 
+    { path: "auditing-intervencija", component: AuditingIzvrsenihIntervencijaComponent}
   ]},
   { path: "auth", component: AuthComponent },
   { path: "register", component: RegisterComponent },

@@ -126,6 +126,16 @@ export class NavBarComponent {
       icon: "work"
     },
     {
+      label: 'Auditing', 
+      icon: 'visibility',
+      items: [
+        {
+          label: 'Auditing Izvrsenih Intervencija',
+          link: 'auditing-intervencija'
+        }
+      ]
+    },
+    {
       label: 'Odjava',
       link: '/logout',
       icon: 'close'
