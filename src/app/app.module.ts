@@ -131,7 +131,8 @@ import { AuthService } from './services/auth.service'
 import { AuthInterceptor } from './interceptors/auth.interceptor'
 import { AuthGuardService } from './guards/auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
-import { LogoutComponent } from './components/logout/logout.component'
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component'
 
 @NgModule({
   declarations: [
@@ -184,7 +185,8 @@ import { LogoutComponent } from './components/logout/logout.component'
     IzvrsenaIntervencijaDialogComponent,
     AuthComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    AuditingIzvrsenihIntervencijaComponent
   ],
   entryComponents: [
     PacijentDialogComponent,

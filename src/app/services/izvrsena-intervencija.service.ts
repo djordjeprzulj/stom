@@ -3,10 +3,11 @@ import { HttpClient } from "@angular/common/http";
 import { IzvrsenaIntervencija } from '../models/izvrsena-intervencija';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { MatSnackBar, MatTableDataSource } from '@angular/material';
+import { MatSnackBar, MatTableDataSource, PageEvent } from '@angular/material';
 import { IzvrsenaIntervencijaComponent } from '../components/izvrsena-intervencija/izvrsena-intervencija.component';
 import { SortModel } from '../models/SortModel';
 import { environment } from '../../environments/environment';
+import { PageRequest } from '../models/pageRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,6 @@ export class IzvrsenaIntervencijaService {
   constructor(public snackBar: MatSnackBar, private _http: HttpClient) { }
 
   public getAllIzvrsenaIntervencija(izvrsenaIntervencijaComponent: IzvrsenaIntervencijaComponent, onInit: boolean) {
-
     this._http.get<IzvrsenaIntervencija[]>(this.API_URL + '?size=' + izvrsenaIntervencijaComponent.pageSortModel.size
       + '&page=' + izvrsenaIntervencijaComponent.pageSortModel.number
       + '&sort=' + izvrsenaIntervencijaComponent.pageSortModel.sort.property
@@ -97,5 +97,9 @@ export class IzvrsenaIntervencijaService {
         console.log(error.name + ' ' + error.message);
       }
     );
+  }
+
+  public getSveIzvrseneIntervenije(pageRequest: PageRequest): Observable<any> {
+    return this._http.get(`${this.API_URL}?size=${pageRequest.pageSize}&page=${pageRequest.pageNumber}`); 
   }
 }

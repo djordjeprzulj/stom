@@ -1,0 +1,39 @@
+<mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="radnoMjesto">
+    <mat-header-cell *matHeaderCellDef>Radno mjesto</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.radnoMjesto.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="pacijent">
+    <mat-header-cell *matHeaderCellDef>Pacijent</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.pacijent.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="zaposleni">
+    <mat-header-cell *matHeaderCellDef>Zaposleni</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.zaposleni.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="createdBy">
+    <mat-header-cell *matHeaderCellDef>Kreirao</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.createdBy}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="createdDate">
+    <mat-header-cell *matHeaderCellDef>Datum kreiranja</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.createdDate | date: 'dd-MM-yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="lastModifiedBy">
+    <mat-header-cell *matHeaderCellDef>Poslednji izmenio</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.lastModifiedBy}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="lastModifiedDate">
+    <mat-header-cell *matHeaderCellDef>Datum poslednje izmene</mat-header-cell>
+    <mat-cell *matCellDef="let aud">{{aud.lastModifiedDate | date: 'dd-MM-yyyy'}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator [length]="length" [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize"
+  (page)="pageChange($event)" showFirstLastButtons></mat-paginator>
