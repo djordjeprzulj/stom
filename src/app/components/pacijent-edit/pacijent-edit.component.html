@@ -1,0 +1,71 @@
+<div class="container" *ngIf="pacijent">
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.id" placeholder="id" [disabled]=true/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.ime" placeholder="Ime"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.prezime" placeholder="Prezime"/>
+    </mat-form-field>
+  </div>
+
+  <div class="form">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Datum rođenja" [(ngModel)]="pacijent.datumRodjenja" name="datumRodjenja">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.adresa" placeholder="Adresa"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.email" placeholder="Email"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.kontakt" placeholder="Kontakt"/>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.ukupno" placeholder="Ukupno"/>
+    </mat-form-field>
+  </div>
+
+  <div class="form">
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerUpis" placeholder="Datum upisa" [(ngModel)]="pacijent.datumUpisa" name="datumUpisa">
+        <mat-datepicker-toggle matSuffix [for]="pickerUpis"></mat-datepicker-toggle>
+        <mat-datepicker #pickerUpis></mat-datepicker>
+      </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="pacijent.napomena" placeholder="Napomena"/>
+    </mat-form-field>
+  </div>
+
+  <button mat-button (click)="goBack()">Nazad</button>
+  <button mat-button (click)="save()">Sačuvaj</button>
+
+</div>
