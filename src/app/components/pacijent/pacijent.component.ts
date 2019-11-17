@@ -42,6 +42,7 @@ export class PacijentComponent implements OnInit {
   ngOnInit() {
     this.pageSortModel = PageSortModel.defaultPatient();
     this.pacijentService.getPacijentPage(this, true);
+    this.loadData(false);
   }
 
   //tslint:disable-next-line:use-life-cycle-interface

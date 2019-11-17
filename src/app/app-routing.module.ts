@@ -23,7 +23,8 @@ import { StavkaPlanaRadaComponent } from './components/stavka-plana-rada/stavka-
 import { PlanRadaComponent } from './components/plan-rada/plan-rada.component';
 import { ZubComponent } from './components/zub/zub.component';
 import { IzvrsenaIntervencijaComponent } from './components/izvrsena-intervencija/izvrsena-intervencija.component';
-import { AuthComponent } from './components/auth/auth.component'
+import { AuthComponent } from './components/auth/auth.component';
+import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.component'
 
 import { AuthGuardService } from './guards/auth-guard.service'
 import { RegisterComponent } from './components/register/register.component'
@@ -33,6 +34,7 @@ import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/au
 const routes: Routes = [
   {path: '', canActivate: [AuthGuardService], children: [
     { path: "pacijent", component: PacijentComponent },
+    { path: "pacijent/:id", component: PacijentEditComponent },
     { path: "artikl", component: ArtiklComponent },
     { path: "struka", component: StrukaComponent },
     { path: "slika", component: SlikaComponent },

@@ -15,7 +15,8 @@ export class PacijentDialogComponent implements OnInit {
   flag: number;
   component: PacijentComponent;
 
-  constructor(public snackBar: MatSnackBar,
+  constructor(
+    public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<PacijentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public pacijentService: PacijentService
@@ -32,7 +33,7 @@ export class PacijentDialogComponent implements OnInit {
   }
 
   public update(): void {
-    this.pacijentService.updatePacijent(this.data, this.component);
+    this.pacijentService.updatePacijent(this.data);
   }
 
   public delete(): void {

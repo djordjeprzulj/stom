@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Pacijent } from "../models/pacijent";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject, of } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import { HttpParams } from "@angular/common/http";
 import { jsonpCallbackContext } from "@angular/common/http/src/module";
-import { map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { MatSnackBar, MatTableDataSource } from '@angular/material';
 import { PageSortModel } from '../models/PageSortModel';
 import { PacijentComponent } from '../components/pacijent/pacijent.component';
@@ -148,12 +148,10 @@ export class PacijentService {
     );
   }
 
-  public updatePacijent(pacijent: Pacijent, pacijentComponent: PacijentComponent): void {
+  public updatePacijent(pacijent: Pacijent): void {
     this._http
       .put(this.API_URL + '/' + pacijent.id, pacijent)
       .subscribe(data => {
-
-        pacijentComponent.loadData(false);
 
         this.snackBar.open('Uspešno užuriran pacijent!', 'U redu',
           {
@@ -184,4 +182,28 @@ export class PacijentService {
       }
     );
   }
+
+  getPacijent(id: number): Observable<Pacijent> {
+    const url = `${this.API_URL}/${id}`;
+    return this._http.get<Pacijent>(url).pipe(
+    tap(_ => console.log(`fetched pacijent id=${id}`)),
+    catchError(this.handleError<Pacijent>(`getPacijent id=${id}`))
+    );
+  }
+
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // TODO: better job of transforming error for user consumption
+    console.log(`${operation} failed: ${error.message}`);
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+    };
+  }
+
 }
