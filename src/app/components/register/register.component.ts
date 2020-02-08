@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { User } from './../../models/user';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -37,9 +38,9 @@ export class RegisterComponent implements OnInit {
         this.snackBar.open('Welcome!', 'Close', { duration: 2000 });
         this.router.navigate(['/']);
       });
-    }, (err: any) => {
-      console.log(err);
-      this.snackBar.open('Unauthorized! Try again.', 'Close', { duration: 2000 });
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+      this.snackBar.open(error.error, 'Close', { duration: 2000 });
     });
   }
 
