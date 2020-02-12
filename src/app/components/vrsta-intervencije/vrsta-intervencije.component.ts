@@ -5,6 +5,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { ViewChild } from '@angular/core';
 import { VrstaIntervencijeDialogComponent } from '../dialogs/vrsta-intervencije-dialog/vrsta-intervencije-dialog.component';
 import { Status } from '../../models/status';
+import { GrupaIntervencija } from 'src/app/models/grupa-intervencija';
 
 @Component({
   selector: 'app-vrsta-intervencije',
@@ -12,7 +13,7 @@ import { Status } from '../../models/status';
   styleUrls: ['./vrsta-intervencije.component.css']
 })
 export class VrstaIntervencijeComponent implements OnInit {
-  displayedColumns = ['id', 'iznos', 'opis', 'status', 'add', 'edit', 'delete'];
+  displayedColumns = ['id', 'iznos', 'opis', 'status', 'grupaIntervencija', 'add', 'edit', 'delete'];
   dataSource: MatTableDataSource<VrstaIntervencije>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,11 +41,11 @@ export class VrstaIntervencijeComponent implements OnInit {
     );
   }
   public openDialog(flag: number, id: number, iznos: number, opis: string,
-                    status: Status) {
+                    status: Status, grupaIntervencija: GrupaIntervencija) {
 
 
 const dialogRef = this.dialog.open(VrstaIntervencijeDialogComponent, {
-data: { id: id,  iznos: iznos, opis: opis, status: status }
+data: { id: id,  iznos: iznos, opis: opis, status: status, grupaIntervencija: grupaIntervencija}
 });
 dialogRef.componentInstance.flag = flag;
 dialogRef.afterClosed().subscribe(result => {

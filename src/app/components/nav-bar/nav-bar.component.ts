@@ -43,6 +43,10 @@ export class NavBarComponent {
         {
           label: "Vrsta intervencije",
           link: "/vrstaIntervencije"
+        },
+        {
+          label: "Grupa intervencija",
+          link: "/grupaIntervencija"
         }
       ]
     },
