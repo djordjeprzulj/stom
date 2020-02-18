@@ -16,7 +16,7 @@
     </div>
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.status" placeholder="Status" name="status" [compareWith]="compareTo" [disabled]="flag == 3" required>
+        <mat-select [(ngModel)]="data.status" placeholder="Status" name="status" [compareWith]="compareTo" [disabled]="flag == 3">
           <mat-option *ngFor="let status of sviStatusi" [value]="status">
             {{ status.opis }}
           </mat-option>

@@ -20,7 +20,7 @@ export class GrupaIntervencijaDialogComponent implements OnInit {
   ngOnInit() {  }
 
   public add(): void {
-    this.grupaIntervencijaService.getNextID(this.data);
+    this.grupaIntervencijaService.addGrupaIntervencija(this.data);
     this.snackBar.open('Uspešno dodata grupa intervencije','U redu',
     {
       duration: 2500

@@ -40,15 +40,4 @@ public deleteStatus(id: number): void {
   this._http.delete(this.API_URL + '/' + id).subscribe(data => {
   });
 }
-public getNextID(addStatus, status: Status) {
-  this._http.get(this.API_URL + 'NextId').subscribe(
-    data => {
-    status.id = data as number;
-    this.addStatus(status);
-  },
-  (error: HttpErrorResponse) => {
-    console.log(error.name + ' ' + error.message);
-  }
-  );
-}
 }

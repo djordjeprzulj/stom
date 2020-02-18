@@ -30,7 +30,7 @@ export class StatusDialogComponent implements OnInit {
   }
 
   public add(): void {
-    this.statusService.getNextID(this.statusService.addStatus, this.data);
+    this.statusService.addStatus(this.data);
     this.snackBar.open('Uspešno dodat status', 'U redu',
       {
         duration: 2500

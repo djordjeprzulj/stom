@@ -39,16 +39,4 @@ export class GrupaIntervencijaService {
     this._http.delete(this.API_URL + '/' + id).subscribe(data => {
     });
   }
-
-  public getNextID(grupaIntervencija: GrupaIntervencija) {
-    this._http.get(this.API_URL + '/NextId').subscribe(
-      data => {
-      grupaIntervencija.id = data as number;
-      this.addGrupaIntervencija(grupaIntervencija);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.name + ' ' + error.message);
-      }
-    );
-  }
 }
