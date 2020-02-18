@@ -30,6 +30,7 @@ import { AuthGuardService } from './guards/auth-guard.service'
 import { RegisterComponent } from './components/register/register.component'
 import { LogoutComponent } from './components/logout/logout.component'
 import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component';
+import { GrupaIntervencijaComponent } from './components/grupa-intervencija/grupa-intervencija.component';
 
 const routes: Routes = [
   {path: '', canActivate: [AuthGuardService], children: [
@@ -48,6 +49,7 @@ const routes: Routes = [
     { path: "radnoMesto", component: RadnoMestoComponent },
     { path: "status", component: StatusComponent },
     { path: "vrstaIntervencije", component: VrstaIntervencijeComponent },
+    { path: "grupaIntervencija", component: GrupaIntervencijaComponent },
     { path: "stavkaPorudzbine", component: StavkaPorudzbineComponent },
     { path: "kalendar", component: KalendarComponent },
     { path: "racun", component: RacunComponent },

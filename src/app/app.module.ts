@@ -133,7 +133,9 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component';
-import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.component'
+import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.component';
+import { GrupaIntervencijaComponent } from './components/grupa-intervencija/grupa-intervencija.component';
+import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-intervencija-dialog/grupa-intervencija-dialog.component'
 
 @NgModule({
   declarations: [
@@ -188,7 +190,9 @@ import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.
     RegisterComponent,
     LogoutComponent,
     AuditingIzvrsenihIntervencijaComponent,
-    PacijentEditComponent
+    PacijentEditComponent,
+    GrupaIntervencijaComponent,
+    GrupaIntervencijaDialogComponent
   ],
   entryComponents: [
     PacijentDialogComponent,
@@ -212,7 +216,8 @@ import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.
     StavkaPlanaRadaDialogComponent,
     PlanRadaDialogComponent,
     ZubDialogComponent,
-    IzvrsenaIntervencijaDialogComponent
+    IzvrsenaIntervencijaDialogComponent,
+    GrupaIntervencijaDialogComponent
   ],
   imports: [
     BrowserModule,

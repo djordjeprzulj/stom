@@ -4,6 +4,8 @@ import { VrstaIntervencije } from '../../../models/vrsta-intervencije';
 import { VrstaIntervencijeService } from '../../../services/vrsta-intervencije.service';
 import { Status } from '../../../models/status';
 import { StatusService } from '../../../services/status.service';
+import { GrupaIntervencija } from 'src/app/models/grupa-intervencija';
+import { GrupaIntervencijaService } from 'src/app/services/grupa-intervencija.service';
 
 
 
@@ -14,18 +16,23 @@ import { StatusService } from '../../../services/status.service';
 })
 export class VrstaIntervencijeDialogComponent implements OnInit {
   sviStatusi: Status[];
+  sveGrupeIntervencija: GrupaIntervencija[];
   flag: number;
 
   constructor(public snackBar: MatSnackBar,
               public dialogRef: MatDialogRef<VrstaIntervencijeDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: VrstaIntervencije,
               public vrstaIntervencijeService: VrstaIntervencijeService,
-              public statusService: StatusService
+              public statusService: StatusService,
+              public grupaIntervencijaService: GrupaIntervencijaService
   ) { }
 
   ngOnInit() {
     this.statusService.getAllStatus().subscribe(status =>
       this.sviStatusi = status
+    );
+    this.grupaIntervencijaService.getAllGrupaIntervencija().subscribe(grupaIntervencija =>
+      this.sveGrupeIntervencija = grupaIntervencija
     );
   }
 
