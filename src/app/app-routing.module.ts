@@ -31,6 +31,7 @@ import { RegisterComponent } from './components/register/register.component'
 import { LogoutComponent } from './components/logout/logout.component'
 import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component';
 import { GrupaIntervencijaComponent } from './components/grupa-intervencija/grupa-intervencija.component';
+import { KvartalniIzvestajComponent } from './components/kvartalni-izvestaj/kvartalni-izvestaj.component';
 
 const routes: Routes = [
   {path: '', canActivate: [AuthGuardService], children: [
@@ -59,6 +60,7 @@ const routes: Routes = [
     { path: "zub", component: ZubComponent },
     { path: "", component: KalendarComponent },
     { path: "izvrsenaIntervencija", component: IzvrsenaIntervencijaComponent}, 
+    { path: "kvartalniIzvestaj", component: KvartalniIzvestajComponent},
     { path: "auditing-intervencija", component: AuditingIzvrsenihIntervencijaComponent}
   ]},
   { path: "auth", component: AuthComponent },

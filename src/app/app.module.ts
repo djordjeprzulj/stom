@@ -135,7 +135,10 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AuditingIzvrsenihIntervencijaComponent } from './components/auditing/auditing-izvrsenih-intervencija/auditing-izvrsenih-intervencija.component';
 import { PacijentEditComponent } from './components/pacijent-edit/pacijent-edit.component';
 import { GrupaIntervencijaComponent } from './components/grupa-intervencija/grupa-intervencija.component';
-import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-intervencija-dialog/grupa-intervencija-dialog.component'
+import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-intervencija-dialog/grupa-intervencija-dialog.component';
+import { KvartalniIzvestajComponent } from './components/kvartalni-izvestaj/kvartalni-izvestaj.component'
+import { KvartalniIzvestajService } from './services/kvartalni-izvestaj.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -192,7 +195,8 @@ import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-int
     AuditingIzvrsenihIntervencijaComponent,
     PacijentEditComponent,
     GrupaIntervencijaComponent,
-    GrupaIntervencijaDialogComponent
+    GrupaIntervencijaDialogComponent,
+    KvartalniIzvestajComponent,
   ],
   entryComponents: [
     PacijentDialogComponent,
@@ -255,9 +259,10 @@ import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-int
     MatCheckboxModule,
     MatProgressSpinnerModule,
     DropDownListModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [
+    DatePipe,
     PacijentService,
     ArtiklService,
     PorudzbinaService,
@@ -288,6 +293,7 @@ import { GrupaIntervencijaDialogComponent } from './components/dialogs/grupa-int
     PlanRadaService,
     StavkaPlanaRadaService,
     ZubService,
+    KvartalniIzvestajService,
     IzvrsenaIntervencijaService,
     AuthService,
     {
