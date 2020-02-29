@@ -130,6 +130,16 @@ export class NavBarComponent {
       icon: "work"
     },
     {
+      label: 'Izvestaji',
+      icon: "chrome_reader_mode",
+      items: [
+        {
+          label: 'Kvartalni Izvestaj',
+          link: 'kvartalniIzvestaj'
+        }
+      ]
+    },
+    {
       label: 'Auditing', 
       icon: 'visibility',
       items: [

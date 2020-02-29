@@ -1,0 +1,54 @@
+<mat-form-field>
+  <mat-label>Izaberi pocetak intervala</mat-label>
+  <input matInput [(ngModel)]="pocIntervala"[matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Izaberi kraj intervala</mat-label>
+  <input matInput [(ngModel)]="krajIntervala"[matDatepicker]="picker1">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+
+
+<button mat-raised-button color="warn" (click)="loadData()">Generisi izvestaj</button>
+<div></div>
+
+
+<mat-toolbar class="toolbarNew" color="primary">
+  <span class="title-center">Kvartalni Izvestaj</span>
+ </mat-toolbar>
+ <div>
+
+  <mat-table #table [dataSource]="dataSource" class="mat-cell">
+    <ng-container matColumnDef="kategorije">
+      <mat-header-cell *matHeaderCellDef>Kategorije</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.kategorija}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="predskolskaDeca">
+      <mat-header-cell *matHeaderCellDef>Predskolska deca</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.predskolskaDeca}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="omladina">
+      <mat-header-cell *matHeaderCellDef>Omladina</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.omladina}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ostali">
+      <mat-header-cell *matHeaderCellDef>Ostali</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.ostali}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ukupno">
+      <mat-header-cell *matHeaderCellDef>Ukupno</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.ukupno}}</mat-cell>
+    </ng-container>
+    <mat-cell *matCellDef="let row">
+    </mat-cell>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+</div>
+
+
+
