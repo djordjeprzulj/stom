@@ -13,24 +13,26 @@ import { stavkaKvartalniIzvestaj } from 'src/app/models/stavkaKvartalniIzvestaj'
 export class KvartalniIzvestajComponent implements OnInit {
   displayedColumns = ['kategorije','predskolskaDeca','omladina','ostali','ukupno'];
   dataSource: MatTableDataSource<stavkaKvartalniIzvestaj>;
-  hidden: boolean = true;
   pocIntervala: Date = new Date();
   krajIntervala: Date = new Date();
   _pocIntervala: String;
   _krajIntervala: String;
+  myVar: boolean = true;
 
   constructor(private _kvartalniIzvestajServis: KvartalniIzvestajService, public datepipe: DatePipe) { }
 
   ngOnInit() {
+    
   }
+  
 
-  public loadData() {
+  public async loadData() {
+    this.myVar = false;
     this._pocIntervala = this.datepipe.transform(this.pocIntervala, 'MM-dd-yyyy');
     this._krajIntervala = this.datepipe.transform(this.krajIntervala, 'MM-dd-yyyy');
     
-    this._kvartalniIzvestajServis.getKvartalniIzvestaj(this._pocIntervala,this._krajIntervala).subscribe(
+    (await this._kvartalniIzvestajServis.getKvartalniIzvestaj(this._pocIntervala, this._krajIntervala)).subscribe(
       data=>{
-        console.log(data);
         this.napraviNiz(data);
       },
       error => {
@@ -62,7 +64,11 @@ export class KvartalniIzvestajComponent implements OnInit {
       {kategorija: 'Lecenje mekih tkiva usne supljine', predskolskaDeca: _kvartalniIzvestaj.prvePosete.predskolskaDeca, omladina:_kvartalniIzvestaj.prvePosete.omladina, ostali:_kvartalniIzvestaj.prvePosete.ostali, ukupno: _kvartalniIzvestaj.prvePosete.ukupno}
     ];
     this.dataSource = new MatTableDataSource<stavkaKvartalniIzvestaj>(elementiNiza);
-    this.hidden = false;
+    
+  }
+
+  public pdf() {
+    this._kvartalniIzvestajServis.generatePdf();
   }
 
 }
